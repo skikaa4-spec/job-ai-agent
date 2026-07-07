@@ -1,19 +1,22 @@
 from pathlib import Path
+from pypdf import PdfReader
  
  
 def analyze_cv(cv_file):
     cv_path = Path(cv_file)
  
-    if cv_path.exists():
-        return "CV found and analyzed."
+    if not cv_path.exists():
+        return "CV not found."
  
-    return "CV not found."
+    try:
+        reader = PdfReader(cv_path)
  
+        text = ""
  
-def load_cv():
-    cv_path = Path("Cv.pdf")
+        for page in reader.pages:
+            text += page.extract_text() or ""
  
-    if cv_path.exists():
-        print("CV found.")
-    else:
-        print("CV not found.")
+        return text
+ 
+    except Exception as e:
+        return f"Error reading CV: {e}"
