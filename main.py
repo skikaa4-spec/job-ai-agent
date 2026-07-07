@@ -10,10 +10,13 @@ def main():
     print("=== محتوى CV ===")
     print(cv_result[:1000])
  
- 
     jobs = search_jobs()
  
     print("\n=== الوظائف المناسبة ===")
+ 
+    if not jobs:
+        print("لا توجد وظائف.")
+        return
  
     for job in jobs:
         print("----------------")
