@@ -3,7 +3,7 @@ from search_jobs import search_jobs
  
  
 def main():
-    cv_file = "Cv.pdf"
+    cv_file = "cv.pdf"
  
     cv_text = analyze_cv(cv_file)
  
