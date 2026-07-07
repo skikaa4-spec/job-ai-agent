@@ -1,17 +1,15 @@
-from config import OPENAI_MODEL
-from analyze_cv import load_cv
 from search_jobs import search_jobs
  
-print("===== AI JOB AGENT =====")
-print(f"Model: {OPENAI_MODEL}")
- 
-if load_cv():
-    print("CV loaded successfully.")
- 
+def main():
+    print("Searching for jobs...")
     jobs = search_jobs()
  
-    print("Jobs found:")
+    if not jobs:
+        print("No jobs found.")
+        return
+ 
     for job in jobs:
-        print(f"- {job['title']} | {job['company']} | {job['city']}")
-else:
-    print("Please upload cv.pdf")
+        print(job)
+ 
+if __name__ == "__main__":
+    main()
