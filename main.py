@@ -3,22 +3,17 @@ from search_jobs import search_jobs
  
  
 def main():
-    cv_file = "cv.pdf"
+    cv_file = "Cv.pdf"
  
-    # تحليل السيرة الذاتية
     cv_result = analyze_cv(cv_file)
  
-    print("=== تحليل CV ===")
-    print(cv_result)
+    print("=== محتوى CV ===")
+    print(cv_result[:1000])
  
-    # البحث عن الوظائف
+ 
     jobs = search_jobs()
  
     print("\n=== الوظائف المناسبة ===")
- 
-    if not jobs:
-        print("لا توجد وظائف حاليا")
-        return
  
     for job in jobs:
         print("----------------")
