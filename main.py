@@ -2,23 +2,32 @@ from analyze_cv import analyze_cv
 from search_jobs import search_jobs
  
  
+def calculate_match(cv_text, keywords):
+    cv_text = cv_text.lower()
+ 
+    score = 0
+ 
+    for keyword in keywords:
+        if keyword.lower() in cv_text:
+            score += 1
+ 
+    return round(score / len(keywords) * 100)
+ 
+ 
 def main():
-    cv_file = "cv.pdf"
- 
-    cv_text = analyze_cv(cv_file)
- 
-    print("=== محتوى CV ===")
-    print(cv_text[:1000])
+    cv_text = analyze_cv("cv.pdf")
  
     jobs = search_jobs()
  
-    print("\n=== الوظائف المناسبة ===")
+    print("=== Résultats ===")
  
     for job in jobs:
+        match = calculate_match(cv_text, job["keywords"])
+ 
         print("----------------")
         print("Poste :", job["title"])
         print("Entreprise :", job["company"])
-        print("Lieu :", job["location"])
+        print("Match :", f"{match}%")
         print("Lien :", job["link"])
  
  
