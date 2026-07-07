@@ -16,6 +16,10 @@ def main():
  
     print("\n=== الوظائف المناسبة ===")
  
+    if not jobs:
+        print("لا توجد وظائف حاليا")
+        return
+ 
     for job in jobs:
         print("----------------")
         print("Poste :", job["title"])
