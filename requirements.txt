@@ -1,3 +1,4 @@
 pypdf
 requests
 beautifulsoup4
+openpyxl
