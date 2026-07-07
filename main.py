@@ -1,15 +1,29 @@
+from analyze_cv import analyze_cv
 from search_jobs import search_jobs
  
+ 
 def main():
-    print("Searching for jobs...")
+    cv_file = "cv.pdf"
+ 
+    # تحليل السيرة الذاتية
+    cv_result = analyze_cv(cv_file)
+ 
+    print("=== تحليل CV ===")
+    print(cv_result)
+ 
+    # البحث عن الوظائف
     jobs = search_jobs()
  
-    if not jobs:
-        print("No jobs found.")
-        return
+    print("\n=== الوظائف المناسبة ===")
  
     for job in jobs:
-        print(job)
+        print("----------------")
+        print("Poste :", job["title"])
+        print("Entreprise :", job["company"])
+        print("Lieu :", job["location"])
+        print("Lien :", job["link"])
+ 
  
 if __name__ == "__main__":
     main()
+ 
