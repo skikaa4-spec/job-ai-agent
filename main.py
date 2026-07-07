@@ -3,7 +3,7 @@ from search_jobs import search_jobs
  
  
 def main():
-    cv_file = "cv.pdf"
+    cv_file = "Cv.pdf"
  
     # تحليل السيرة الذاتية
     cv_result = analyze_cv(cv_file)
