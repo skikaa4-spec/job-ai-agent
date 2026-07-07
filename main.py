@@ -1,8 +1,8 @@
-from search_jobs import search_jobs
+from analyze_cv import load_cv
  
-jobs = search_jobs()
+print("===== AI JOB AGENT =====")
  
-print("========== JOBS ==========")
- 
-for job in jobs:
-    print(job)
+if load_cv():
+    print("Starting job search...")
+else:
+    print("Please upload cv.pdf")
