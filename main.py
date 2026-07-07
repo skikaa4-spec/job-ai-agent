@@ -5,18 +5,14 @@ from search_jobs import search_jobs
 def main():
     cv_file = "Cv.pdf"
  
-    cv_result = analyze_cv(cv_file)
+    cv_text = analyze_cv(cv_file)
  
     print("=== محتوى CV ===")
-    print(cv_result[:1000])
+    print(cv_text[:1000])
  
     jobs = search_jobs()
  
     print("\n=== الوظائف المناسبة ===")
- 
-    if not jobs:
-        print("لا توجد وظائف.")
-        return
  
     for job in jobs:
         print("----------------")
