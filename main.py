@@ -1,24 +1,8 @@
-import requests
+from search_jobs import search_jobs
  
-jobs = [
-    "Magasinier",
-    "Chef Magasinier",
-    "Superviseur Sécurité",
-    "Conducteur de Manitou"
-]
+jobs = search_jobs()
  
-countries = [
-    "Morocco",
-    "France",
-    "Canada",
-    "United Arab Emirates"
-]
+print("========== JOBS ==========")
  
-print("========== AI JOB AGENT ==========")
- 
-for country in countries:
-    print(f"\n🌍 {country}")
-    for job in jobs:
-        print(f"🔍 Searching for: {job}")
- 
-print("\nSearch completed successfully.")
+for job in jobs:
+    print(job)
