@@ -22,19 +22,14 @@ def search_remotive():
  
         jobs = []
  
-        for job in data["jobs"]:
- 
-            title = job["title"].lower()
- 
-            if any(word.lower() in title for word in KEYWORDS):
- 
-                jobs.append({
-                    "title": job["title"],
-                    "company": job["company_name"],
-                    "location": job["candidate_required_location"],
-                    "link": job["url"],
-                    "keywords": KEYWORDS
-                })
+        for job in data["jobs"][:50]:
+            jobs.append({
+                "title": job["title"],
+                "company": job["company_name"],
+                "location": job["candidate_required_location"],
+                "link": job["url"],
+                "keywords": KEYWORDS
+            })
  
         return jobs
  
