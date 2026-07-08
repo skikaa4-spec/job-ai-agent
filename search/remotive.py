@@ -11,15 +11,16 @@ def search_remotive():
  
         for job in data["jobs"][:20]:
             jobs.append({
-    "title": job["title"],
-    "company": job["company_name"],
-    "location": job["candidate_required_location"],
-    "link": job["url"],
-    "keywords": []
-})
+                "title": job["title"],
+                "company": job["company_name"],
+                "location": job["candidate_required_location"],
+                "link": job["url"],
+                "keywords": []
+            })
  
         return jobs
  
     except Exception as e:
         print("Erreur:", e)
         return []
+ 
