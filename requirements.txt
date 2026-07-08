@@ -1,4 +1,5 @@
-pypdf
 requests
 beautifulsoup4
+pypdf
 openpyxl
+lxml
