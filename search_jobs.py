@@ -1,4 +1,11 @@
 from search.remotive import search_remotive
  
 def search_jobs():
-    return search_remotive()
+    jobs = []
+ 
+    try:
+        jobs.extend(search_remotive())
+    except Exception as e:
+        print("Remotive error:", e)
+ 
+    return jobs
