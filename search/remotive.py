@@ -1,38 +1,28 @@
 import requests
  
-KEYWORDS = [
-    "QHSE",
-    "Safety",
-    "HSE",
-    "Warehouse",
-    "Logistics",
-    "Stock",
-    "Maintenance",
-    "Supervisor",
-    "Technician",
-    "Odoo"
-]
  
-def search_remotive():
+def search_remotive(limit=50):
     url = "https://remotive.com/api/remote-jobs"
  
     try:
-        response = requests.get(url, timeout=10)
-        data = response.json()
+        response = requests.get(url, timeout=15)
+        response.raise_for_status()
  
+        data = response.json()
         jobs = []
  
-        for job in data["jobs"][:50]:
+        for job in data.get("jobs", [])[:limit]:
+ 
             jobs.append({
-                "title": job["title"],
-                "company": job["company_name"],
-                "location": job["candidate_required_location"],
-                "link": job["url"],
-                "keywords": KEYWORDS
+                "title": job.get("title", ""),
+                "company": job.get("company_name", ""),
+                "location": job.get("candidate_required_location", ""),
+                "description": job.get("description", ""),
+                "link": job.get("url", "")
             })
  
         return jobs
  
     except Exception as e:
-        print("Erreur:", e)
+        print("Erreur Remotive :", e)
         return []
